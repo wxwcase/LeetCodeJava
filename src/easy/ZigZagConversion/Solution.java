@@ -55,4 +55,48 @@ public class Solution {
 		}
 		return result;
 	}
+
+	public String convert2(String s, int nRows) {
+		if(s == "" || nRows == 1) {
+			return s;
+		}
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < nRows; i++) {
+			int diff = 2 * nRows - 2 - 2 * i;
+			for (int j = i; j < s.length(); j += 2 * (nRows - 1)) {
+				sb.append(s.substring(j, j + 1));
+				if (i == 0 || i == nRows - 1) {
+					continue;
+				}
+				if(j + diff < s.length()) {
+					sb.append(s.substring(j + diff, j + diff + 1));
+				}
+			}
+		}
+		return sb.toString();
+	}
+	/*
+	// A simple python solution:
+	def convert(sef, s, n):
+		// null case
+		if n == 1:
+			return s
+		
+		// create a list of empty strings
+		res = ['' for i in range(n)]
+		
+		// initialize the sequence
+		index = 0
+		step = 1
+		
+		// add s[i] to the list using index
+		for i in range(len(s)):
+			res[index] += s[i]
+			if index == n - 1:
+				step = -1
+			elif index == 0:
+				step = 1
+			index += step
+		return ''.join(res)
+	*/
 }
