@@ -4,6 +4,11 @@ public class Solution {
 
 	/**
 	 * Implement atoi to convert a string to an integer
+	 * Border case:
+	 * 	1. Empty string
+	 *  2. Leading/trailing zeros
+	 *  3. Invalid character in the middle of the string
+	 *  4. Integer overflow
 	 * @param str
 	 * @return
 	 */
