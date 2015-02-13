@@ -1,12 +1,12 @@
-package PascalsTriangle;
+package easy.PascalsTrianlge;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Solution {
-
+	
 	/**
-	 * TODO
+	 * Pascal numbers
 	 * @param numRows
 	 * @return
 	 */
