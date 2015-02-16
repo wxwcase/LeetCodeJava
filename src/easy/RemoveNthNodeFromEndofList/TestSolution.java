@@ -9,6 +9,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import common.datastruct.ListNode;
+
 public class TestSolution {
 	
 	private Solution sol = null;

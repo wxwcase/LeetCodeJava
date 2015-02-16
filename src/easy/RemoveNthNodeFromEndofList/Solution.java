@@ -3,6 +3,8 @@ package easy.RemoveNthNodeFromEndofList;
 import java.util.ArrayList;
 import java.util.List;
 
+import common.datastruct.ListNode;
+
 public class Solution {
 	
 	/**
@@ -54,14 +56,5 @@ public class Solution {
 			head = head.next;
 		}
 		return list;
-	}
-}
-
-class ListNode {
-	int val;
-	ListNode next;
-	ListNode(int x) {
-		val = x;
-		next = null;
 	}
 }

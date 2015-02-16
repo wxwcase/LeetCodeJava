@@ -1,5 +1,7 @@
 package easy.BalancedBinaryTree;
 
+import common.datastruct.TreeNode;
+
 public class Solution {
 	
 	/**
@@ -25,14 +27,5 @@ public class Solution {
 		} else {
 			return 1 + Math.max(findDepth(root.left), findDepth(root.right));
 		}
-	}
-}
-
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
-	TreeNode(int x) {
-		val = x;
 	}
 }
