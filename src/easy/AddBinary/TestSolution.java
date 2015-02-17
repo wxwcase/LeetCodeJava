@@ -32,19 +32,19 @@ public class TestSolution {
 		String a8 = "1010";
 		String a9 = "1011";
 		
-		assertEquals("1", sol.addBinary(a1, a2));
-		assertEquals("11", sol.addBinary(a2, a3));
-		assertEquals("100", sol.addBinary(a2, a4));
-		assertEquals("101", sol.addBinary(a2, a5));
-		assertEquals("101", sol.addBinary(a3, a4));
-		assertEquals("1011", sol.addBinary(a6, a7));
-		assertEquals("10101", sol.addBinary(a8, a9));
+		assertEquals("1", sol.addBinary2(a1, a2));
+		assertEquals("11", sol.addBinary2(a2, a3));
+		assertEquals("100", sol.addBinary2(a2, a4));
+		assertEquals("101", sol.addBinary2(a2, a5));
+		assertEquals("101", sol.addBinary2(a3, a4));
+		assertEquals("1011", sol.addBinary2(a6, a7));
+		assertEquals("10101", sol.addBinary2(a8, a9));
 	}
 	
 	@Test
 	public void testEmpty() {
 		String a = "";
 		String b = "";
-		assertEquals("", sol.addBinary(a, b));
+		assertEquals("", sol.addBinary2(a, b));
 	}
 }

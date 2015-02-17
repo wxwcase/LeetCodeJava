@@ -1,3 +1,4 @@
+
 package easy.AddBinary;
 
 public class Solution {
@@ -10,6 +11,7 @@ public class Solution {
 	 * @return
 	 */
 	public String addBinary(String a, String b) {
+
 		if (a == null || b == null) {
 			return a == null ? b : a;
 		}
@@ -78,5 +80,28 @@ public class Solution {
 			}
 			return sb.toString();
 		}
+	}
+
+	public String addBinary2(String a, String b) {
+		StringBuilder sb = new StringBuilder();
+		int ia = a.length() - 1;
+		int ib = b.length() - 1;
+		int sum = 0;
+		while (ia >= 0 || ib >= 0) {
+			int va = 0, vb = 0;
+			if (ia >= 0) {
+				va = a.charAt(ia--) - '0';
+			}
+			if (ib >= 0) {
+				vb = b.charAt(ib--) - '0';
+			}
+			sum += (va + vb);
+			sb.insert(0, sum % 2 == 0 ? "0" : "1");
+			sum /= 2;
+		}
+		if (sum == 1) {
+			sb.insert(0, "1");
+		}
+		return sb.toString();
 	}
 }
