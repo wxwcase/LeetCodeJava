@@ -1,4 +1,5 @@
 First Round:
 1. Symmetric Tree
 2. Remove Duplicates from Sorted Array
-3. 
+3. Repeated DNA Sequence
+	- Using Rabin-Karp algorithm
