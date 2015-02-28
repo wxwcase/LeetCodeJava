@@ -1,4 +1,4 @@
-package RemoveDuplicatesFromSortedList;
+package easy.removeduplicatesfromsortedlist;
 
 import common.datastruct.ListNode;
 
