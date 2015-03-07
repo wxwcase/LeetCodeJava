@@ -26,6 +26,7 @@ public class Solution {
 
     while (tried < gas.length) {
       // find start point which is not negative to travel to the next station
+      // skip negative gas gain
       remain = 0;
       while (grow[start] < 0 && tried < gas.length) {
         start = (start + 1) % gas.length;

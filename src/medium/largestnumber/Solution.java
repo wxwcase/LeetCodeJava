@@ -1,14 +1,16 @@
 package medium.largestnumber;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+
+import common.datastruct.IntegerSequenceComparator;
 
 public class Solution {
-  
-  private static final TreeMap<Character, Integer> MAP = new TreeMap<>();
+
+  private final List<Integer> list = new LinkedList<>();
+  private final IntegerSequenceComparator integerComparator = new IntegerSequenceComparator();
+  private final StringBuffer buffer = new StringBuffer();
   
   /**
    * Given a list of non negative integers, arrange them such that they form the
@@ -17,12 +19,14 @@ public class Solution {
    * @return the largest integer
    */
   public String largestNumber(int[] num) {
+   
     // Algorithm
     // 1. Choose the one with first digit the largest
     //      - No conflict: choose the number and remove it and iterate
     //      - Conflicts: loop through the conflicts and keep the last digit and compare
     //      -            choose the one with the largest last digit and go to 1.
     // 2. Deal with the rest
+    // Use TreeSet with customized comparator
 
     // Base case:
     if (num.length == 0) {
@@ -31,44 +35,22 @@ public class Solution {
       return String.valueOf(num[0]);
     }
     
-    // Create storage
-    List<Integer> list = new ArrayList<>();
+    int sum = 0;
     for (int i = 0; i < num.length; i++) {
+      sum += num[i];
       list.add(num[i]);
     }
+    if (sum == 0) {
+      return "0";
+    }
 
-    StringBuffer sb = new StringBuffer();
-    preprocess(num);
-    Map.Entry<Character, Integer> lastEntry = MAP.lastEntry();
-    char currentChar;
-    while (lastEntry != null) {
-      currentChar = lastEntry.getKey();
-      int count = MAP.get(currentChar);
-      for (int i = 0; i < count; i++) {
-        sb.append(currentChar);
-      }
-      MAP.remove(currentChar);
-      lastEntry = MAP.lastEntry();
+    Collections.sort(list, integerComparator);
+    
+    for (int i = 0; i < list.size(); i++) {
+      System.out.print(" " + list.get(i));
+      buffer.insert(0, list.get(i));
     }
-    return sb.toString(); 
-  }
-  
-  /**
-   * Loading input array into the map.
-   * @param num input array
-   */
-  private void preprocess(int[] num) {
-    String content = "";
-    for (int i = 0; i < num.length; i++) {
-      content = String.valueOf(num[i]);
-      for (int j = 0; j < content.length(); j++) {
-        if (MAP.containsKey(content.charAt(j))) {
-          int val = MAP.get(content.charAt(j));
-          MAP.put(content.charAt(j), ++val);
-        } else {
-          MAP.put(content.charAt(j), 1);
-        }
-      }
-    }
+    
+    return buffer.toString();
   }
 }

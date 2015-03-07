@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestSolution {
@@ -41,4 +42,24 @@ public class TestSolution {
     assertEquals(s1, sol.largestNumber(a1));
   }
 
+  @Test
+  public void testTwoItemsArray() {
+    int[] a1 = {1, 2};
+    String s1 = "21";
+    assertEquals(s1, sol.largestNumber(a1));
+  }
+  
+  @Test
+  public void testZeroZero() {
+    int[] a1 = {0, 0};
+    String s1 = "0";
+    assertEquals(s1, sol.largestNumber(a1));
+  }
+  
+  @Test
+  public void test2() {
+    int[] a1 = {824, 8247, 9609, 938};
+    String s1 = "96099388248247";
+    assertEquals(s1, sol.largestNumber(a1));
+  }
 }
