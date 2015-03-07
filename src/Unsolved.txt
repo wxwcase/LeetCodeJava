@@ -4,3 +4,4 @@ First Round:
 3. Repeated DNA Sequence
 	- Using Rabin-Karp algorithm
 4. Single Number II
+5. Fraction to Recurring Decimal
