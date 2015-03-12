@@ -1,33 +1,46 @@
 package medium.clonegraph;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 import common.datastruct.UndirectedGraphNode;
 
+/**
+ * @author wxwcase
+ * Algorithm:
+ * **********************************
+ * visit(Node node) {
+ *   for(Node node : neighbors) { 
+ *     visit(node);
+ *   }
+ *   process(node);
+ * }
+ * **********************************
+ */
 public class Solution {
   
+  Map<Integer, UndirectedGraphNode> map = new HashMap<>();
+
+  /**
+   * Clone an undirected graph.
+   * @param node root node
+   * @return the cloned graph root node
+   */
   public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
-    // create first node
     if (node == null) {
       return null;
     }
-    
-    UndirectedGraphNode result = new UndirectedGraphNode(node.label);
-    List<UndirectedGraphNode> rootNeighbors = node.neighbors;
-    List<UndirectedGraphNode> resultNeighbors = new ArrayList<>();
-    result.neighbors = resultNeighbors;
-    
-    if (rootNeighbors.size() == 1) {
-      return result;
+    UndirectedGraphNode localnode = new UndirectedGraphNode(node.label);
+    map.put(node.label, localnode);
+    for (UndirectedGraphNode neighbor : node.neighbors) {
+      UndirectedGraphNode cur;
+      if (!map.containsKey(neighbor.label)) {
+        cur = cloneGraph(neighbor);
+      } else {
+        cur = map.get(neighbor.label);
+      }
+      localnode.neighbors.add(cur);
     }
-    
-    
-    for(UndirectedGraphNode neighbor : rootNeighbors) {
-      UndirectedGraphNode n = cloneGraph(neighbor);
-      resultNeighbors.add(n);
-    }
-    return result;
+    return localnode;
   }
 }

@@ -5,3 +5,4 @@ First Round:
 	- Using Rabin-Karp algorithm
 4. Single Number II
 5. Fraction to Recurring Decimal
+6. Three Sum
