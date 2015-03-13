@@ -25,12 +25,12 @@ public class Solution {
     for (int i = 0; i < str.length(); i++) {
       List<String> set = new ArrayList<String>();
       if (isPalindrome(str.substring(0,i + 1))) {
-        set.addAll(prevStr);
-        set.add(str.substring(0,i + 1));
+        set.addAll(prevStr); // add previous strings
+        set.add(str.substring(0,i + 1)); // add left substring
         if (i == str.length() - 1) {
-          result.add(set);
+          result.add(set); // right substring is empty
         } else {
-          result.addAll(dfs(str.substring(i + 1),set));
+          result.addAll(dfs(str.substring(i + 1),set)); // right side haven't processed
         }
       }
     }
