@@ -7,3 +7,4 @@ First Round:
 5. Fraction to Recurring Decimal
 6. Three Sum
 7. Palindrome Partitioning
+8. Find Peak Element
