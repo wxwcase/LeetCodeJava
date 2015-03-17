@@ -12,10 +12,10 @@ public class Solution {
     int high = num.length - 1;
     int mid = (low + high) / 2;
     while (low < high) {
-      if (num[mid] > num[mid + 1]) {
-        high = mid;
+      if (num[mid] < num[mid + 1]) {
+        low = mid + 1;
       } else {
-        low = mid;
+        high = mid;
       }
       mid = (low + high) / 2;
     }
