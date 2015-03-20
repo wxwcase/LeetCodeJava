@@ -36,7 +36,7 @@ public class Solution {
       List<Integer> tmp = new ArrayList<>();
       process(list, n - 1);
       for (Integer i : list) {
-        tmp.add(0, i | (1 << (n - 1)));
+        tmp.add(0, i | (1 << (n - 1))); // add from end
       }
       list.addAll(tmp);
     }
