@@ -9,3 +9,5 @@ First Round:
 7. Palindrome Partitioning
 8. Find Peak Element
 9. Integer to Roman
+10. Count Prime:
+    - Use Sieve of Eratosthenes
