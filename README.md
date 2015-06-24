@@ -1,9 +1,7 @@
 # LeetCodeJava
 
-src
+# src
 
- |- easy
- 
- |- medium
- 
- |- hard
+- easy
+- medium
+- hard
